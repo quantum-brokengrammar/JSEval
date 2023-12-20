@@ -12,12 +12,9 @@ public class JSEval extends Plugin {
     @Override
     public void registerClientCommands(CommandHandler handler) {
         handler.<Player>register("js", "<code...>", "Execute JavaScript code.", (args, player) -> {
-            if (player.admin) {
                  String output = mods.getScripts().runConsole(args[0]);
                  player.sendMessage("> " + (isError(output) ? "[#ff341c]" + output : output));
-            } else {
-                player.sendMessage("[scarlet]You must be admin to use this command.");
-            }
+        }
         });
     }
 
